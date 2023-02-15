@@ -9,6 +9,7 @@ class Triangle
   end
 
   def kind
+    validate_triangle
     if side1 == side2 && side2 == side3
       :equilateral
     elsif side1 == side2 || side2 == side3 || side3 == side1
@@ -39,11 +40,10 @@ class Triangle
   end
 
   def validate_triangle
-    raise TriangleError unless triangle_inequality == true && triangle_sides == true
+    raise TriangleError unless triangle_sides == true && triangle_inequality == true
   end
 
   class TriangleError < StandardError
-    # triangle error code
   end
 
 end
